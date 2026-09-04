@@ -1,0 +1,43 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3c2410" />
+      <stop offset="55%" stop-color="#5e3717" />
+      <stop offset="100%" stop-color="#7a4517" />
+    </linearGradient>
+    <linearGradient id="plank1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9c5818" />
+      <stop offset="100%" stop-color="#c3721e" />
+    </linearGradient>
+    <linearGradient id="plank2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#dc8f2f" />
+      <stop offset="100%" stop-color="#e6ac54" />
+    </linearGradient>
+    <linearGradient id="plank3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7a4517" />
+      <stop offset="100%" stop-color="#9c5818" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)" />
+
+  <g opacity="0.55">
+    <rect x="-100" y="60" width="900" height="90" rx="6" fill="url(#plank1)" transform="rotate(-8 350 105)" />
+    <rect x="-140" y="220" width="1000" height="70" rx="6" fill="url(#plank3)" transform="rotate(-8 360 255)" />
+    <rect x="-80" y="360" width="850" height="110" rx="6" fill="url(#plank2)" transform="rotate(-8 345 415)" />
+    <rect x="-160" y="560" width="1050" height="60" rx="6" fill="url(#plank1)" transform="rotate(-8 365 590)" />
+    <rect x="-100" y="700" width="900" height="90" rx="6" fill="url(#plank3)" transform="rotate(-8 350 745)" />
+    <rect x="-140" y="860" width="1000" height="75" rx="6" fill="url(#plank2)" transform="rotate(-8 360 897)" />
+  </g>
+
+  <g opacity="0.35">
+    <rect x="900" y="-40" width="120" height="1080" fill="#f8e7c9" transform="rotate(8 960 500)" />
+    <rect x="1080" y="-40" width="80" height="1080" fill="#f0cd8f" transform="rotate(8 1120 500)" />
+    <rect x="1220" y="-40" width="150" height="1080" fill="#e6ac54" transform="rotate(8 1295 500)" />
+    <rect x="1420" y="-40" width="60" height="1080" fill="#f8e7c9" transform="rotate(8 1450 500)" />
+  </g>
+
+  <circle cx="1360" cy="220" r="180" fill="#f8e7c9" opacity="0.08" />
+  <circle cx="1500" cy="760" r="260" fill="#dc8f2f" opacity="0.12" />
+
+  <rect width="1600" height="1000" fill="url(#bg)" opacity="0.15" />
+</svg>
