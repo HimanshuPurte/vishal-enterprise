@@ -10,42 +10,35 @@ const base = {
   strokeLinejoin: 'round' as const,
 }
 
-export function LaminateIcon(props: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" {...base} {...props}>
-      <rect x="3" y="6" width="18" height="12" rx="2" />
-      <path d="M3 10h18M3 14h18" />
-    </svg>
-  )
-}
-
-export function VeneerIcon(props: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" {...base} {...props}>
-      <path d="M4 4c4 2 4 4 8 4s4-2 8-4M4 10c4 2 4 4 8 4s4-2 8-4M4 16c4 2 4 4 8 4s4-2 8-4" />
-    </svg>
-  )
-}
-
-export function PlywoodIcon(props: IconProps) {
+export function WpcPanelIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" {...base} {...props}>
       <rect x="3" y="4" width="18" height="16" rx="1" />
-      <rect x="6" y="7" width="12" height="10" rx="1" opacity="0.6" />
+      <path d="M8 4v16M13 4v16M17.5 4v16" opacity="0.6" />
     </svg>
   )
 }
 
-export function HardwareIcon(props: IconProps) {
+export function SoffitIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" {...base} {...props}>
-      <circle cx="8" cy="12" r="3" />
-      <path d="M11 12h10M17 9v6" />
+      <rect x="3" y="9" width="18" height="7" rx="1" />
+      <path d="M6 12h.01M9.5 12h.01M13 12h.01M16.5 12h.01M20 12h.01" />
+      <path d="M3 5l18-1" />
     </svg>
   )
 }
 
-export function AdhesiveIcon(props: IconProps) {
+export function StonePanelIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...base} {...props}>
+      <rect x="3" y="4" width="18" height="16" rx="1" />
+      <path d="M3 9l6-2 5 2 7-2M4 15l5-2 5 2 6-2" />
+    </svg>
+  )
+}
+
+export function GlueIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" {...base} {...props}>
       <path d="M9 3h6v4l2 2v10a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l2-2V3Z" />
@@ -54,10 +47,29 @@ export function AdhesiveIcon(props: IconProps) {
   )
 }
 
-export function WallpaperIcon(props: IconProps) {
+export function SteelRoofingIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" {...base} {...props}>
-      <path d="M4 4v16M9 4c2 3 -2 6 0 9s-2 6 0 7M14 4c2 3 -2 6 0 9s-2 6 0 7M20 4v16" />
+      <path d="M3 20l3-9 3 5 3-8 3 8 3-5 3 9" />
+      <path d="M3 20h18" />
+    </svg>
+  )
+}
+
+export function BambooIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...base} {...props}>
+      <path d="M8 21V3M8 7h8M8 12h8M8 17h8" />
+      <path d="M12 3v18" opacity="0.6" />
+    </svg>
+  )
+}
+
+export function DownloadIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" {...base} {...props}>
+      <path d="M12 3v12M7 10l5 5 5-5" />
+      <path d="M4 19h16" />
     </svg>
   )
 }
@@ -71,10 +83,10 @@ export function StarIcon(props: IconProps) {
 }
 
 export const categoryIcons = {
-  laminate: LaminateIcon,
-  veneer: VeneerIcon,
-  plywood: PlywoodIcon,
-  hardware: HardwareIcon,
-  adhesive: AdhesiveIcon,
-  wallpaper: WallpaperIcon,
+  wpcPanel: WpcPanelIcon,
+  soffit: SoffitIcon,
+  stonePanel: StonePanelIcon,
+  glue: GlueIcon,
+  steelRoofing: SteelRoofingIcon,
+  bamboo: BambooIcon,
 }

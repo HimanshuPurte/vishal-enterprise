@@ -1,7 +1,18 @@
+import { useRef, useState } from 'react'
 import { testimonials } from '../data/testimonials'
 import { StarIcon } from './icons'
 
 export function Testimonials() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [scrollProgress, setScrollProgress] = useState(0)
+
+  const handleScroll = () => {
+    const el = scrollRef.current
+    if (!el) return
+    const maxScroll = el.scrollWidth - el.clientWidth
+    setScrollProgress(maxScroll > 0 ? el.scrollLeft / maxScroll : 0)
+  }
+
   return (
     <section id="testimonials" className="bg-ink-900 py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -14,11 +25,15 @@ export function Testimonials() {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:overflow-visible md:pb-0 lg:grid-cols-4"
+        >
           {testimonials.map((testimonial) => (
             <figure
               key={testimonial.id}
-              className="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-6"
+              className="flex w-72 flex-shrink-0 snap-start flex-col rounded-2xl border border-white/10 bg-white/5 p-6 md:w-auto md:flex-shrink md:snap-none"
             >
               <div className="flex gap-1 text-brand-300">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -39,6 +54,13 @@ export function Testimonials() {
               </figcaption>
             </figure>
           ))}
+        </div>
+
+        <div className="mt-4 h-1 w-full overflow-hidden rounded-full bg-white/10 md:hidden">
+          <div
+            className="h-full rounded-full bg-brand-300 transition-[width]"
+            style={{ width: `${Math.max(scrollProgress * 100, 8)}%` }}
+          />
         </div>
       </div>
     </section>

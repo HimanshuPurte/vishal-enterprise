@@ -9,7 +9,7 @@ const columns = [
   },
   {
     title: 'Contact',
-    links: ['+91 98765 43210', 'info@vishalenterprise.in', 'Mon–Sat: 9am – 7pm'],
+    links: ['Maharaja, W-35, ZONE 14, MR-4 Rd, S.B.I, Chounk, Vikas Nagar, Jabalpur, Raksha, Madhya Pradesh 482002','+91 8602246687', 'info@vishalenterprise.in', 'Mon–Sat: 9am – 7pm'],
   },
 ]
 

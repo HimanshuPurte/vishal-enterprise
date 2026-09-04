@@ -1,0 +1,153 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#17130f"/>
+    <stop offset="100%" stop-color="#45301b"/>
+  </linearGradient>
+
+  <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+    <stop offset="55%" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000000" stop-opacity="0.55"/>
+  </radialGradient>
+
+  <linearGradient id="sweep" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#ffe7be" stop-opacity="0"/>
+    <stop offset="50%" stop-color="#ffe7be" stop-opacity="0.10"/>
+    <stop offset="100%" stop-color="#ffe7be" stop-opacity="0"/>
+  </linearGradient>
+
+  <!-- wood board gradient -->
+  <linearGradient id="woodBase" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#a9713f"/>
+    <stop offset="45%" stop-color="#8a5a30"/>
+    <stop offset="100%" stop-color="#6e4423"/>
+  </linearGradient>
+
+  <!-- repeating wood-grain streaks -->
+  <pattern id="grain" width="1500" height="10" patternUnits="userSpaceOnUse">
+    <rect width="1500" height="10" fill="none"/>
+    <line x1="0" y1="1.5" x2="1500" y2="1" stroke="#5f3c1f" stroke-opacity="0.35" stroke-width="1"/>
+    <line x1="0" y1="4" x2="1500" y2="4.6" stroke="#c98f57" stroke-opacity="0.25" stroke-width="1"/>
+    <line x1="0" y1="7" x2="1500" y2="6.5" stroke="#5f3c1f" stroke-opacity="0.2" stroke-width="1"/>
+  </pattern>
+
+  <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#ffffff"/>
+    <stop offset="45%" stop-color="#c9ccd1"/>
+    <stop offset="60%" stop-color="#8b909a"/>
+    <stop offset="100%" stop-color="#e9ebee"/>
+  </linearGradient>
+
+  <linearGradient id="flame" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#ff5b3d"/>
+    <stop offset="100%" stop-color="#b21e12"/>
+  </linearGradient>
+
+  <filter id="shadowBlur" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="16"/>
+  </filter>
+  <filter id="softBlur30" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="30"/>
+  </filter>
+
+  <style>
+    .brand   { font-family: 'Arial Black','Segoe UI',sans-serif; font-weight:900; }
+    .tagline { font-family: 'Segoe UI', Arial, sans-serif; font-weight:700; letter-spacing:3px; }
+    .phone   { font-family: 'Segoe UI', Arial, sans-serif; font-weight:700; }
+  </style>
+</defs>
+
+<!-- ================= BACKDROP ================= -->
+<rect x="0" y="0" width="1920" height="1080" fill="url(#bgGrad)"/>
+<polygon points="1060,0 1590,0 770,1080 240,1080" fill="url(#sweep)" filter="url(#softBlur30)"/>
+<g stroke="#ffffff" stroke-opacity="0.035" stroke-width="2">
+  <line x1="0" y1="0" x2="0" y2="1080"/>
+  <line x1="96" y1="0" x2="96" y2="1080"/>
+  <line x1="192" y1="0" x2="192" y2="1080"/>
+  <line x1="288" y1="0" x2="288" y2="1080"/>
+  <line x1="384" y1="0" x2="384" y2="1080"/>
+  <line x1="480" y1="0" x2="480" y2="1080"/>
+  <line x1="576" y1="0" x2="576" y2="1080"/>
+  <line x1="672" y1="0" x2="672" y2="1080"/>
+  <line x1="768" y1="0" x2="768" y2="1080"/>
+  <line x1="864" y1="0" x2="864" y2="1080"/>
+  <line x1="960" y1="0" x2="960" y2="1080"/>
+  <line x1="1056" y1="0" x2="1056" y2="1080"/>
+  <line x1="1152" y1="0" x2="1152" y2="1080"/>
+  <line x1="1248" y1="0" x2="1248" y2="1080"/>
+  <line x1="1344" y1="0" x2="1344" y2="1080"/>
+  <line x1="1440" y1="0" x2="1440" y2="1080"/>
+  <line x1="1536" y1="0" x2="1536" y2="1080"/>
+  <line x1="1632" y1="0" x2="1632" y2="1080"/>
+  <line x1="1728" y1="0" x2="1728" y2="1080"/>
+  <line x1="1824" y1="0" x2="1824" y2="1080"/>
+  <line x1="1920" y1="0" x2="1920" y2="1080"/>
+</g>
+<rect x="0" y="0" width="1920" height="1080" fill="url(#vignette)"/>
+
+<!-- ================= CORNER ACCENTS ================= -->
+<g stroke="#ce9f5c" stroke-width="3" fill="none">
+  <polyline points="142,242 142,220 164,220"/>
+  <polyline points="1778,220 1800,220 1800,242"/>
+  <polyline points="142,730 142,752 164,752"/>
+  <polyline points="1778,752 1800,752 1800,730"/>
+</g>
+
+<!-- ================= DROP SHADOW + MAT ================= -->
+<rect x="176" y="248" width="1600" height="536" rx="20" fill="#000000" opacity="0.55" filter="url(#shadowBlur)"/>
+<rect x="164" y="220" width="1592" height="511" rx="20" fill="#f5f0e7"/>
+<rect x="164" y="220" width="1592" height="511" rx="20" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2"/>
+
+<!-- ================= SIGNBOARD (pure vector recreation) ================= -->
+<g transform="translate(210,266)">
+  <rect x="-6" y="-6" width="1512" height="431" rx="8" fill="none" stroke="#ce9f5c" stroke-width="3"/>
+
+  <rect x="0" y="0" width="1500" height="419" rx="4" fill="url(#woodBase)"/>
+  <rect x="0" y="0" width="1500" height="419" rx="4" fill="url(#grain)"/>
+  <rect x="0" y="0" width="1500" height="419" rx="4" fill="none" stroke="#3f2712" stroke-opacity="0.5" stroke-width="4"/>
+
+  <!-- emblem: shield + flame + pedestal -->
+  <g transform="translate(1010,65) scale(0.8)">
+    <path d="M -70 -10 L 0 -70 L 70 -10 L 55 70 Q 0 100 -55 70 Z"
+          fill="url(#chrome)" stroke="#6c7178" stroke-width="3"/>
+    <path d="M -40 -6 L 0 -55 L 40 -6 L 30 40 Q 0 58 -30 40 Z" fill="#eef0f3" opacity="0.55"/>
+    <path d="M -10 -85 Q 0 -95 10 -85 L 14 40 Q 0 55 -14 40 Z" fill="url(#flame)"/>
+    <circle cx="0" cy="96" r="16" fill="url(#chrome)" stroke="#6c7178" stroke-width="2"/>
+    <rect x="-10" y="110" width="20" height="14" fill="#54585f"/>
+  </g>
+
+  <!-- whatsapp + phone -->
+  <g transform="translate(1104,36)">
+    <circle cx="0" cy="0" r="21" fill="#3fc35a"/>
+    <path d="M -11 12 L -8 1 C -12 -7 -9 -15 -1 -16 C 8 -17 14 -10 13 -2 C 12 6 5 12 -2 12 C -5 12 -8 11 -11 12 Z"
+          fill="#ffffff"/>
+  </g>
+  <text x="1136" y="46" class="phone" font-size="38" fill="#f7f2e8">8602246687</text>
+
+  <!-- brand text with raised-letter shadow effect -->
+  <g transform="skewX(-6)">
+    <text x="26" y="284" class="brand" font-size="112" fill="#241a0e" opacity="0.45">VISHAL ENTERPRISES</text>
+    <text x="20" y="278" class="brand" font-size="112" fill="#fbf7ef">VISHAL ENTERPRISES</text>
+
+    <text x="66" y="384" class="brand" font-size="96" fill="#241a0e" opacity="0.45">HOME INTERIOR</text>
+    <text x="60" y="378" class="brand" font-size="96" fill="#fbf7ef">HOME INTERIOR</text>
+  </g>
+
+  <!-- mounting brackets -->
+  <g fill="#2b1c0f">
+    <rect x="120" y="410" width="26" height="16"/>
+    <rect x="560" y="410" width="26" height="16"/>
+    <rect x="920" y="410" width="26" height="16"/>
+    <rect x="1320" y="410" width="26" height="16"/>
+  </g>
+</g>
+
+<!-- ================= DIVIDER + TAGLINE ================= -->
+<g stroke="#ce9f5c" stroke-width="2">
+  <line x1="860" y1="827" x2="940" y2="827"/>
+  <line x1="980" y1="827" x2="1060" y2="827"/>
+</g>
+<circle cx="960" cy="827" r="6" fill="#ce9f5c"/>
+<text x="960" y="875" text-anchor="middle" class="tagline" font-size="32" fill="#e8dcc8">CRAFTED INTERIORS &#183; JABALPUR</text>
+
+</svg>

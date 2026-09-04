@@ -1,4 +1,6 @@
+import { useRef, useState } from 'react'
 import { catalogue } from '../data/products'
+import { DownloadIcon } from './icons'
 
 const swatchPalette = [
   'from-brand-300 to-brand-500',
@@ -8,6 +10,16 @@ const swatchPalette = [
 ]
 
 export function ProductCatalogue() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [scrollProgress, setScrollProgress] = useState(0)
+
+  const handleScroll = () => {
+    const el = scrollRef.current
+    if (!el) return
+    const maxScroll = el.scrollWidth - el.clientWidth
+    setScrollProgress(maxScroll > 0 ? el.scrollLeft / maxScroll : 0)
+  }
+
   return (
     <section id="catalogue" className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -32,11 +44,15 @@ export function ProductCatalogue() {
           </a>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 lg:grid-cols-4"
+        >
           {catalogue.map((product, index) => (
             <div
               key={product.id}
-              className="group overflow-hidden rounded-2xl border border-ink-100 transition hover:shadow-lg"
+              className="group w-64 flex-shrink-0 snap-start overflow-hidden rounded-2xl border border-ink-100 transition hover:shadow-lg sm:w-auto sm:flex-shrink sm:snap-none"
             >
               <div
                 className={`h-36 w-full bg-gradient-to-br ${swatchPalette[index % swatchPalette.length]} transition group-hover:scale-105`}
@@ -49,9 +65,24 @@ export function ProductCatalogue() {
                   {product.name}
                 </h3>
                 <p className="text-sm text-ink-500">{product.finish}</p>
+                <a
+                  href={product.downloadUrl}
+                  download
+                  className="inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-brand-600 transition hover:text-brand-500"
+                >
+                  <DownloadIcon className="h-4 w-4" />
+                  Download Spec Sheet
+                </a>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-4 h-1 w-full overflow-hidden rounded-full bg-ink-100 sm:hidden">
+          <div
+            className="h-full rounded-full bg-brand-500 transition-[width]"
+            style={{ width: `${Math.max(scrollProgress * 100, 8)}%` }}
+          />
         </div>
       </div>
     </section>
