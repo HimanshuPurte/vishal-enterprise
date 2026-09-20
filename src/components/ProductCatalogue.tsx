@@ -1,25 +1,34 @@
-import { useRef, useState } from 'react'
-import { catalogue } from '../data/products'
+import { catalogue, type Product } from '../data/products'
 import { DownloadIcon } from './icons'
 
-const swatchPalette = [
-  'from-brand-300 to-brand-500',
-  'from-ink-300 to-ink-600',
-  'from-brand-200 to-brand-400',
-  'from-ink-200 to-ink-500',
+const stackTransforms = [
+  '-translate-x-10 -rotate-6',
+  'translate-x-0 rotate-0 z-10',
+  'translate-x-10 rotate-6',
 ]
 
-export function ProductCatalogue() {
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
+function transformsForCount(count: number) {
+  if (count === 1) return [stackTransforms[1]]
+  if (count === 2) return [stackTransforms[0], stackTransforms[2]]
+  return stackTransforms
+}
 
-  const handleScroll = () => {
-    const el = scrollRef.current
-    if (!el) return
-    const maxScroll = el.scrollWidth - el.clientWidth
-    setScrollProgress(maxScroll > 0 ? el.scrollLeft / maxScroll : 0)
+type Collection = {
+  category: string
+  products: Product[]
+}
+
+const collections: Collection[] = catalogue.reduce<Collection[]>((groups, product) => {
+  const existing = groups.find((group) => group.category === product.category)
+  if (existing) {
+    existing.products.push(product)
+  } else {
+    groups.push({ category: product.category, products: [product] })
   }
+  return groups
+}, [])
 
+export function ProductCatalogue() {
   return (
     <section id="catalogue" className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -29,10 +38,10 @@ export function ProductCatalogue() {
               Catalogue
             </p>
             <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink-900">
-              Featured Products
+              Our Collections
             </h2>
             <p className="mt-4 text-ink-500">
-              A glimpse of our current stock. Reach out for the full catalogue and current
+              Browse our range by collection. Reach out for the full catalogue and current
               pricing.
             </p>
           </div>
@@ -44,45 +53,48 @@ export function ProductCatalogue() {
           </a>
         </div>
 
-        <div
-          ref={scrollRef}
-          onScroll={handleScroll}
-          className="mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 lg:grid-cols-4"
-        >
-          {catalogue.map((product, index) => (
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {collections.map((collection) => (
             <div
-              key={product.id}
-              className="group w-64 flex-shrink-0 snap-start overflow-hidden rounded-2xl border border-ink-100 transition hover:shadow-lg sm:w-auto sm:flex-shrink sm:snap-none"
+              key={collection.category}
+              className="group rounded-3xl bg-ink-50 p-8 transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <div
-                className={`h-36 w-full bg-gradient-to-br ${swatchPalette[index % swatchPalette.length]} transition group-hover:scale-105`}
-              />
-              <div className="space-y-1 p-5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">
-                  {product.category}
-                </p>
-                <h3 className="font-display text-base font-semibold text-ink-900">
-                  {product.name}
-                </h3>
-                <p className="text-sm text-ink-500">{product.finish}</p>
-                <a
-                  href={product.downloadUrl}
-                  download
-                  className="inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-brand-600 transition hover:text-brand-500"
-                >
-                  <DownloadIcon className="h-4 w-4" />
-                  Download Spec Sheet
-                </a>
+              <h3 className="font-display text-lg font-semibold text-ink-900">
+                {collection.category}
+              </h3>
+              <p className="mt-1 text-sm text-ink-500">
+                {collection.products.length} product{collection.products.length > 1 ? 's' : ''}
+              </p>
+
+              <div className="relative mt-8 flex h-40 items-center justify-center">
+                {collection.products.slice(0, 3).map((product, index) => (
+                  <img
+                    key={product.id}
+                    src={`https://picsum.photos/seed/${product.id}/300/380`}
+                    alt=""
+                    className={`absolute h-36 w-28 rounded-xl border-4 border-white object-cover shadow-md transition group-hover:-translate-y-1 ${
+                      transformsForCount(Math.min(collection.products.length, 3))[index]
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-x-4 gap-y-2 border-t border-ink-200/70 pt-5">
+                {collection.products.map((product) => (
+                  <a
+                    key={product.id}
+                    href={product.downloadUrl}
+                    download
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 transition hover:text-brand-500"
+                    title={`Download ${product.name} spec sheet`}
+                  >
+                    <DownloadIcon className="h-4 w-4" />
+                    {product.name}
+                  </a>
+                ))}
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-4 h-1 w-full overflow-hidden rounded-full bg-ink-100 sm:hidden">
-          <div
-            className="h-full rounded-full bg-brand-500 transition-[width]"
-            style={{ width: `${Math.max(scrollProgress * 100, 8)}%` }}
-          />
         </div>
       </div>
     </section>

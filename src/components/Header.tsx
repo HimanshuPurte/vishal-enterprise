@@ -5,11 +5,17 @@ const navLinks = [
   { label: 'Contact', href: '#footer' },
 ]
 
-export function Header() {
+type HeaderProps = {
+  variant?: 'dark' | 'light'
+}
+
+export function Header({ variant = 'dark' }: HeaderProps) {
+  const isLight = variant === 'light'
+
   return (
     <header className="absolute inset-x-0 top-0 z-20">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
-        <a href="#" className="flex items-center gap-2 text-white">
+        <a href="#" className={`flex items-center gap-2 ${isLight ? 'text-ink-900' : 'text-white'}`}>
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-400 font-display text-lg font-semibold text-brand-900">
             VE
           </span>
@@ -17,10 +23,17 @@ export function Header() {
             Vishal Enterprise
           </span>
         </a>
-        <ul className="hidden items-center gap-8 text-sm font-medium text-white/90 md:flex">
+        <ul
+          className={`hidden items-center gap-8 text-sm font-medium md:flex ${
+            isLight ? 'text-ink-700' : 'text-white/90'
+          }`}
+        >
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="transition hover:text-brand-200">
+              <a
+                href={link.href}
+                className={`transition ${isLight ? 'hover:text-brand-600' : 'hover:text-brand-200'}`}
+              >
                 {link.label}
               </a>
             </li>
@@ -28,7 +41,11 @@ export function Header() {
         </ul>
         <a
           href="#footer"
-          className="hidden rounded-full bg-white px-5 py-2 text-sm font-semibold text-ink-900 transition hover:bg-brand-100 md:inline-block"
+          className={`hidden rounded-full px-5 py-2 text-sm font-semibold transition md:inline-block ${
+            isLight
+              ? 'bg-ink-900 text-black hover:bg-ink-800'
+              : 'bg-white text-ink-900 hover:bg-brand-100'
+          }`}
         >
           Get in Touch
         </a>
