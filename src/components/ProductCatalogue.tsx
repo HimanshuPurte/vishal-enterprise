@@ -1,5 +1,6 @@
 import { catalogue, type Product } from '../data/products'
 import { DownloadIcon } from './icons'
+import { VideoBackground } from './VideoBackground'
 
 const stackTransforms = [
   '-translate-x-10 -rotate-6',
@@ -30,24 +31,25 @@ const collections: Collection[] = catalogue.reduce<Collection[]>((groups, produc
 
 export function ProductCatalogue() {
   return (
-    <section id="catalogue" className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="catalogue" className="relative overflow-hidden py-24">
+      <VideoBackground />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-500">
               Catalogue
             </p>
-            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink-900">
+            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white">
               Our Collections
             </h2>
-            <p className="mt-4 text-ink-500">
+            <p className="mt-4 text-white/70">
               Browse our range by collection. Reach out for the full catalogue and current
               pricing.
             </p>
           </div>
           <a
             href="#footer"
-            className="rounded-full border border-ink-200 px-6 py-2.5 text-sm font-semibold text-ink-800 transition hover:border-brand-400 hover:text-brand-600"
+            className="rounded-full border border-white/30 px-6 py-2.5 text-sm font-semibold text-white transition hover:border-brand-400 hover:text-brand-400"
           >
             Request Full Catalogue
           </a>
@@ -70,9 +72,9 @@ export function ProductCatalogue() {
                 {collection.products.slice(0, 3).map((product, index) => (
                   <img
                     key={product.id}
-                    src={`https://picsum.photos/seed/${product.id}/300/380`}
+                    src={product.image }
                     alt=""
-                    className={`absolute h-36 w-28 rounded-xl border-4 border-white object-cover shadow-md transition group-hover:-translate-y-1 ${
+                    className={`absolute h-36  rounded-xl border-4 border-white object-cover shadow-md transition group-hover:-translate-y-1 ${
                       transformsForCount(Math.min(collection.products.length, 3))[index]
                     }`}
                   />

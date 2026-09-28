@@ -1,3 +1,18 @@
+import wpcPanelImage from '../image/wpc-panel.jpg'
+import soffitPanelImage from '../image/soffit-panel.jpg'
+import stonePanelImage from '../image/stone-panel.jpg'
+import steelRoofingImage from '../image/Stone Coated Steel Roofing.jpg'
+import polygraniteImage from '../image/polygranite.jpg'
+
+import DecorativePanels1 from '../image/image2.jpg'
+import DecorativePanels2 from '../image/image1.jpg'
+import DecorativePanels3 from '../image/image3.jpg'
+
+import pvc from '../image/pvc.png'            
+
+import Flooring from '../image/floor.jpg'
+
+
 export type ProductCategory = {
   id: string
   name: string
@@ -12,21 +27,21 @@ export const productRange: ProductCategory[] = [
     name: 'WPC Exterior Panel',
     description: 'Weather-resistant wood-plastic composite panels built for exterior cladding and facades.',
     icon: 'wpcPanel',
-    image: 'https://picsum.photos/seed/wpc-exterior-panel/600/400',
+    image: wpcPanelImage,
   },
   {
     id: 'soffit-panel',
     name: 'Soffit Panel',
     description: 'Ventilated soffit panels that protect eaves while keeping air flowing freely.',
     icon: 'soffit',
-    image: 'https://picsum.photos/seed/soffit-panel/600/400',
+    image: soffitPanelImage,
   },
   {
     id: 'stone-panel',
     name: 'Stone Panel',
     description: 'Lightweight decorative stone-finish panels for striking interior and exterior walls.',
     icon: 'stonePanel',
-    image: 'https://picsum.photos/seed/stone-panel/600/400',
+    image: stonePanelImage,
   },
   {
     id: 'glue',
@@ -40,7 +55,7 @@ export const productRange: ProductCategory[] = [
     name: 'Stone Coated Steel Roofing',
     description: 'Durable stone-coated steel roofing sheets that pair strength with style.',
     icon: 'steelRoofing',
-    image: 'https://picsum.photos/seed/stone-coated-steel-roofing/600/400',
+    image: steelRoofingImage,
   },
   {
     id: 'bamboo-charcoal-panel',
@@ -57,93 +72,137 @@ export type Product = {
   category: string
   finish: string
   downloadUrl: string
+  image?: string
 }
 
-const CATALOGUE_ASSET_BASE = 'https://pub-9bd40650e53a466d8ed4409c60275882.r2.dev'
+const CATALOGUE_ASSET_BASE =
+  'https://pub-9bd40650e53a466d8ed4409c60275882.r2.dev/vishal-enterprise-catlogue'
+
+const asset = (filename: string) => `${CATALOGUE_ASSET_BASE}/${encodeURIComponent(filename)}`
 
 export const catalogue: Product[] = [
   {
-    id: 'p1',
-    name: 'Amber Oak Laminate',
-    category: 'Laminates',
-    finish: 'Matte',
-    downloadUrl: `${CATALOGUE_ASSET_BASE}/amber-oak-laminate.pdf`,
+    id: 'wpc-exterior-panel',
+    name: 'WPC Exterior Panel',
+    category: 'WPC Panels',
+    finish: 'Exterior Grade',
+    downloadUrl: asset('A4 Size WPC Exterior-1.pdf'),
+    image: wpcPanelImage,
   },
   {
-    id: 'p2',
-    name: 'Walnut Grain Veneer',
-    category: 'Veneers',
-    finish: 'Natural',
-    downloadUrl: `${CATALOGUE_ASSET_BASE}/walnut-grain-veneer.pdf`,
+    id: 'wpc-interior-fluted-panel',
+    name: 'WPC Interior Fluted Panel',
+    category: 'WPC Panels',
+    finish: 'Interior Grade',
+    downloadUrl: asset('WPC Interior Fluted Panel.pdf'),
+    image: wpcPanelImage,
   },
   {
-    id: 'p3',
-    name: 'Marine Plywood 19mm',
-    category: 'Plywood & Boards',
-    finish: 'BWP Grade',
-    downloadUrl: `${CATALOGUE_ASSET_BASE}/marine-plywood-19mm.pdf`,
+    id: 'arkceil-soffit',
+    name: 'ARKCEIL Soffit Panel',
+    category: 'Soffit Panel',
+    finish: 'Ventilated',
+    downloadUrl: asset('ARKCEIL_SOFFIT.pdf'),
+    image: soffitPanelImage,
   },
   {
-    id: 'p4',
-    name: 'Soft-Close Hinge Set',
-    category: 'Furniture Hardware',
-    finish: 'Chrome',
-    downloadUrl: `${CATALOGUE_ASSET_BASE}/soft-close-hinge-set.pdf`,
+    id: 'stone-panel-catalog',
+    name: 'Stone Panel Catalogue',
+    category: 'Stone Panel',
+    finish: 'Decorative Finish',
+    downloadUrl: asset('Stone Panel Catalog.pdf'),
+    image: stonePanelImage,
   },
   {
-    id: 'p5',
-    name: 'Pearl White Laminate',
-    category: 'Laminates',
-    finish: 'Glossy',
-    downloadUrl: `${CATALOGUE_ASSET_BASE}/pearl-white-laminate.pdf`,
+    id: 'stone-coated-steel-roofing',
+    name: 'Stone Coated Steel Roofing',
+    category: 'Stone Coated Steel Roofing',
+    finish: 'Roofing Sheet',
+    downloadUrl: asset('stone coated steel Roofing-1.pdf'),
+    image: steelRoofingImage,
   },
   {
-    id: 'p6',
-    name: 'Teak Wood Veneer',
-    category: 'Veneers',
-    finish: 'Natural',
-    downloadUrl: `${CATALOGUE_ASSET_BASE}/teak-wood-veneer.pdf`,
+    id: 'polygranite-sheet',
+    name: 'Polygranite Sheet',
+    category: 'Polygranite Panels',
+    finish: 'Granite Finish',
+    downloadUrl: asset('1. Polygranite Sheet.pdf'),
+    image: polygraniteImage,
   },
   {
-    id: 'p7',
-    name: 'MR Grade Plywood 12mm',
-    category: 'Plywood & Boards',
-    finish: 'Commercial',
-    downloadUrl: `${CATALOGUE_ASSET_BASE}/mr-grade-plywood-12mm.pdf`,
+    id: 'estella-decor-crystal-series',
+    name: 'Estella Decor Crystal Series',
+    category: 'Decorative Panels',
+    finish: 'Crystal Series',
+    downloadUrl: asset('Estella Decor Crystal Series.pdf'),
+    image: DecorativePanels1,
   },
   {
-    id: 'p8',
-    name: 'Geometric Wallpaper',
-    category: 'Wallpapers & Films',
-    finish: 'Textured',
-    downloadUrl: `${CATALOGUE_ASSET_BASE}/geometric-wallpaper.pdf`,
+    id: 'estella-decor-pixie-collection',
+    name: 'Estella Decor Pixie Collection',
+    category: 'Decorative Panels',
+    finish: 'Pixie Collection',
+    downloadUrl: asset('Estella Decor Pixie Collection.pdf'), 
+    image: DecorativePanels3,
   },
   {
-    id: 'p9',
-    name: 'Aluminium Profile Handle',
-    category: 'Furniture Hardware',
-    finish: 'Matte Black',
-    downloadUrl: `${CATALOGUE_ASSET_BASE}/aluminium-profile-handle.pdf`,
+    id: 'estella-decor-goldfinch-collection',
+    name: 'Estella Decor Goldfinch Collection',
+    category: 'Decorative Panels',
+    finish: 'Goldfinch Collection',
+    downloadUrl: asset('Estella decor Goldfinch Collection(1).pdf'),
+    image: DecorativePanels2,
   },
   {
-    id: 'p10',
-    name: 'Industrial Wood Adhesive',
-    category: 'Adhesives & Chemicals',
-    finish: '1L Can',
-    downloadUrl: `${CATALOGUE_ASSET_BASE}/industrial-wood-adhesive.pdf`,
+    id: 'glitter-pattern',
+    name: 'Glitter Pattern',
+    category: 'Decorative Panels',
+    finish: 'Glitter Finish',
+    downloadUrl: asset('Glitter Pattern.pdf'),
   },
   {
-    id: 'p11',
-    name: 'Charcoal Grey Laminate',
-    category: 'Laminates',
-    finish: 'Suede',
-    downloadUrl: `${CATALOGUE_ASSET_BASE}/charcoal-grey-laminate.pdf`,
+    id: 'gp-flooring-brochure',
+    name: 'GP Flooring Brochure',
+    category: 'Flooring',
+    finish: 'Brochure',
+    downloadUrl: asset('GP_FlooringBrochure.pdf'),
+    image: Flooring,
   },
   {
-    id: 'p12',
-    name: 'Rosewood Veneer Sheet',
-    category: 'Veneers',
-    finish: 'Natural',
-    downloadUrl: `${CATALOGUE_ASSET_BASE}/rosewood-veneer-sheet.pdf`,
+    id: 'spc-flooring-catalog',
+    name: 'SPC Flooring Catalogue',
+    category: 'Flooring',
+    finish: 'SPC',
+    downloadUrl: asset('SPC Flooring Catalog.pdf'),
+    image: Flooring,
   },
+  {
+    id: 'herringbone-flooring',
+    name: 'Stunning Herringbone Flooring',
+    category: 'Flooring',
+    finish: 'Herringbone',
+    downloadUrl: asset('ST - STUNNING Herringbone Flooring.pdf'),
+  },
+  {
+    id: 'pvc-partition',
+    name: 'PVC Partition',
+    category: 'PVC Partition',
+    finish: 'Partition Panel',
+    downloadUrl: asset('PVC Partition.pdf'),
+    image: pvc,
+  },
+  // {
+  //   id: 'arise-folder',
+  //   name: 'ARISE Folder',
+  //   category: 'ARISE Folder',
+  //   finish: 'Catalogue',
+  //   downloadUrl: asset('ARISE FOLDER PDF.pdf'),
+  // },
+  // {
+  //   id: 'aryan-aghara',
+  //   name: 'Aryan Aghara',
+  //   category: 'Aryan Aghara',
+  //   finish: 'Catalogue',
+  //   downloadUrl: asset('Aryan Aghara.pdf'),
+  // },
 ]

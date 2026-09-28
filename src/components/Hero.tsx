@@ -2,17 +2,26 @@ import { useEffect, useRef, useState } from 'react'
 import { useScroll } from 'motion/react'
 import { Header } from './Header'
 
-// TODO: swap for real product/interior photography once available.
+import image1 from '../image/hero/hero1.jpg'
+import image2 from '../image/hero/hero2.jpg'
+import image3 from '../image/hero/hero3.jpg'
+import image4 from '../image/hero/hero4.jpg'
+import image5 from '../image/hero/hero5.jpg'
+import image6 from '../image/hero/pexels-liuuu-_61-2383408-34549311.jpg'
+import image7 from '../image/hero/pexels-ranamatloob567-35189707.jpg'
+import image8 from '../image/hero/pexels-s3t-koncepts-1636465088-28853343.jpg'
+import image9 from '../image/hero/pexels-the-ghazi-2152398165-32177982.jpg'
+
 const CARDS = [
-  'https://picsum.photos/seed/vishal-panel-1/480/600',
-  'https://picsum.photos/seed/vishal-panel-2/480/600',
-  'https://picsum.photos/seed/vishal-panel-3/480/600',
-  'https://picsum.photos/seed/vishal-panel-4/480/600',
-  'https://picsum.photos/seed/vishal-panel-5/480/600',
-  'https://picsum.photos/seed/vishal-panel-6/480/600',
-  'https://picsum.photos/seed/vishal-panel-7/480/600',
-  'https://picsum.photos/seed/vishal-panel-8/480/600',
-  'https://picsum.photos/seed/vishal-panel-9/480/600',
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
+  image8,
+  image9,
 ]
 
 // Cards sit edge-to-edge around a regular polygon inscribed in the
@@ -173,7 +182,7 @@ export function Hero() {
           className="sticky top-0 flex h-screen w-full flex-col items-center justify-center overflow-hidden"
         >
           <video
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_012548_ef22562c-c0ae-4816-ad9d-f8922af4e6a7.mp4"
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260701_083907_581a119a-89b7-4c9f-a6ef-560625e0086f.mp4"
             autoPlay
             loop
             muted
@@ -206,7 +215,7 @@ export function Hero() {
           >
             <div
               ref={rotorRef}
-              className="relative h-[260px] w-[190px] [--card-radius:300px] [transform-style:preserve-3d] will-change-transform sm:h-[250px] sm:w-[380px] sm:[--card-radius:570px]"
+              className="relative h-[260px] w-[190px] [--card-radius:300px] [transform-style:preserve-3d] will-change-transform sm:h-[250px] sm:w-[380px] sm:[--card-radius:590px]"
             >
               {CARDS.map((src, i) => (
                 <div

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { productRange } from '../data/products'
 import { categoryIcons } from './icons'
+import { VideoBackground } from './VideoBackground'
 
 export function ProductRange() {
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -14,16 +15,17 @@ export function ProductRange() {
   }
 
   return (
-    <section id="product-range" className="bg-ink-50 py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="product-range" className="relative overflow-hidden py-24">
+      <VideoBackground />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-500">
             What We Offer
           </p>
-          <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink-900">
+          <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white">
             Our Product Range
           </h2>
-          <p className="mt-4 text-ink-500">
+          <p className="mt-4 text-white/70">
             From surface finishes to structural boards, we stock everything you need to
             complete an interior project — sourced from trusted manufacturers.
           </p>
@@ -66,7 +68,7 @@ export function ProductRange() {
           })}
         </div>
 
-        <div className="mt-4 h-1 w-full overflow-hidden rounded-full bg-ink-100 sm:hidden">
+        <div className="mt-4 h-1 w-full overflow-hidden rounded-full bg-white/20 sm:hidden">
           <div
             className="h-full rounded-full bg-brand-500 transition-[width]"
             style={{ width: `${Math.max(scrollProgress * 100, 8)}%` }}
